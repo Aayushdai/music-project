@@ -1,0 +1,131 @@
+/* Reset & basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1e1e1e;
+  color: #fff;
+  gap: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav span {
+  margin-left: auto;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+nav div.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Pages Container */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Songs list */
+.song-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.song-item p {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+audio {
+  width: 100%;
+}
+
+/* Buttons on Homepage */
+.home-buttons button {
+  margin: 10px;
+  min-width: 120px;
+}
+
+/* Error & Success messages */
+p.error {
+  color: #dc3545;
+  font-weight: 500;
+}
+
+p.success {
+  color: #28a745;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
