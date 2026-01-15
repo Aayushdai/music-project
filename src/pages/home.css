@@ -1,0 +1,161 @@
+/* RESET / GLOBAL FIX */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f0f0f;
+  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ================= HEADER ================= */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #121212;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8%;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.logo:hover {
+  color: #1db954;
+}
+
+.nav-actions button {
+  margin-left: 12px;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.nav-actions button:first-child {
+  background: #1db954;
+  color: #000;
+}
+
+button.outline {
+  background: transparent;
+  border: 2px solid #1db954;
+  color: #1db954;
+}
+
+button.outline:hover {
+  background: #1db954;
+  color: #000;
+}
+
+/* ================= HERO ================= */
+.hero {
+  padding: 100px 8% 80px;
+  background: linear-gradient(180deg, #121212, #0f0f0f);
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.hero h1 span {
+  color: #1db954;
+}
+
+.hero p {
+  max-width: 600px;
+  color: #b3b3b3;
+  font-size: 1.1rem;
+}
+
+.hero-buttons {
+  margin-top: 28px;
+  display: flex;
+  gap: 14px;
+}
+
+.hero-buttons button {
+  padding: 12px 26px;
+  border-radius: 30px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hero-buttons .primary {
+  background: #1db954;
+  color: #000;
+}
+
+.hero-buttons .secondary {
+  background: transparent;
+  border: 2px solid #1db954;
+  color: #1db954;
+}
+
+/* ================= INTRO ================= */
+.intro {
+  padding: 80px 8%;
+  text-align: center;
+  background: #0f0f0f;
+}
+
+.intro h2 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.intro p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #b3b3b3;
+  font-size: 1rem;
+}
+
+/* ================= FEATURES ================= */
+.intro-features {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: #181818;
+  padding: 28px;
+  border-radius: 18px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-card h4 {
+  margin: 12px 0 8px;
+  font-size: 1.1rem;
+}
+
+.feature-card p {
+  color: #aaaaaa;
+  font-size: 0.95rem;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api/api";
+import "./login.css";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -14,10 +15,18 @@ export default function Register() {
     const password = e.target.password.value;
 
     try {
-      await API.post("/users/register", { name, email, password, role: "user" });
-      setMessage("Registration successful! You can now login.");
+      await API.post("/users/register", {
+        name,
+        email,
+        password,
+        role: "user",
+      });
+      setMessage("Registration successful! Redirecting to login...");
       setError("");
-      navigate("/login");
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 1200);
     } catch (err) {
       setError(err.response?.data?.message || "Registration failed");
       setMessage("");
@@ -25,16 +34,43 @@ export default function Register() {
   };
 
   return (
-    <div className="container">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <input name="name" placeholder="Name" required />
-        <input name="email" placeholder="Email" required />
-        <input name="password" type="password" placeholder="Password" required />
-        <button type="submit">Register</button>
-      </form>
-      {message && <p className="success">{message}</p>}
-      {error && <p className="error">{error}</p>}
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2>Create Account 🎶</h2>
+        <p className="auth-subtitle">
+          Join Music App and start your musical journey
+        </p>
+
+        <form onSubmit={handleRegister}>
+          <input
+            name="name"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required
+          />
+
+          <button type="submit">Register</button>
+        </form>
+
+        {message && <p className="success">{message}</p>}
+        {error && <p className="error">{error}</p>}
+
+        <p className="auth-footer">
+          Already have an account?{" "}
+          <span onClick={() => navigate("/login")}>Login</span>
+        </p>
+      </div>
     </div>
   );
 }
