@@ -1,46 +1,156 @@
-.top-artists-container {
-  padding: 40px;
-  color: white;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-  min-height: 100vh;
-}
-
+/* PAGE CONTAINER */
 .top-artists-container h1 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+  color: #ffffff;
+  height: 160px;
+  border-radius: 18px;
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 14px;
+
+  /* subtle neon glow */
+  box-shadow:
+    0 0 10px rgba(0, 255, 200, 0.35),
+    0 0 25px rgba(0, 255, 200, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.05);
 }
 
-.artist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
 
-.artist-card {
-  background: #181818;
-  border-radius: 16px;
-  padding: 20px;
+/* HEADER */
+
+
+.subtitle {
   text-align: center;
-  transition: transform 0.3s ease;
+  color: #bbb;
+  font-size: 1rem;
+  margin-bottom: 35px;
+}
+body {
+  background-color: #0b0b0b;
 }
 
-.artist-card:hover {
-  transform: translateY(-6px);
+
+/* GRID → COLUMN */
+.artists-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.artist-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
+/* ARTIST CARD (same idea as bird cards) */
+.artist-card {
+  position: relative;
+  height: 370px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
 }
 
+/* Dynamic background image */
+.artist-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* EVEN = LEFT TEXT */
+.artist-card:nth-child(odd)::before {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0) 45%, white 100%),
+    var(--bg);
+}
+
+/* ODD = RIGHT TEXT */
+.artist-card:nth-child(even)::before {
+  background-image:
+    linear-gradient(to left, rgba(255,255,255,0) 45%, white 100%),
+    var(--bg);
+}
+
+/* CONTENT */
+.artist-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* RANK */
+.rank {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* ARTIST IMAGE */
+.artist-image {
+  display: none; /* background image handles visuals */
+}
+
+/* TEXT BLOCK */
 .artist-card h3 {
-  margin-top: 12px;
-  font-size: 1.1rem;
+  font-size: 55px;
+  margin-bottom: 15px;
 }
 
-.artist-card p {
-  color: #aaa;
-  font-size: 0.9rem;
+/* BUTTON */
+.spotify-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: #1db954;
+  color: white;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.spotify-btn:hover {
+  background-color: #17a74a;
+}
+
+/* LEFT TEXT ALIGNMENT */
+.artist-card:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+/* RIGHT TEXT ALIGNMENT */
+.artist-card:nth-child(even) {
+  justify-content: flex-end;
+  text-align: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .top-artists-container h1 {
+    font-size: 40px;
+    height: 140px;
+  }
+
+  .artist-card {
+    height: auto;
+    padding: 30px;
+  }
+
+  .artist-card h3 {
+    font-size: 32px;
+  }
 }
